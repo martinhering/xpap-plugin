@@ -31,7 +31,9 @@ namespace XPAP {
         IPAddress       m_ip;
         UDPConnection   m_connection;
 
-        XPLMDataRef     m_altitude;
+        XPLMDataRef     m_altitude_ref;
+        
+        uint32_t        m_altitude;
     };
 
 };

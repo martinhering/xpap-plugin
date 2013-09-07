@@ -12,7 +12,7 @@
 
 typedef struct {
     uint32_t            endpoint;
-    uint8_t             payload_type;
+    uint16_t            payload_type;
     uint16_t            payload_size;
 } XPAPUDPHeader_t;
 
