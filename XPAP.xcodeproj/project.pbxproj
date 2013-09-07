@@ -25,6 +25,7 @@
 		1B2268F517DB6E8300E3F66F /* xpap.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpap.pch; sourceTree = "<group>"; };
 		1B2268F817DB6EE700E3F66F /* B777MCP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B777MCP.cpp; sourceTree = "<group>"; };
 		1B2268F917DB6EE700E3F66F /* B777MCP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B777MCP.h; sourceTree = "<group>"; };
+		1B2268FB17DB766600E3F66F /* XPAPProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPAPProtocol.h; sourceTree = "<group>"; };
 		D607B19909A556E400699BC3 /* XPAP.xpl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = XPAP.xpl; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67297EA0F9E0FCC00CFD1FA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D6A7BDA916A1DEA200D1426A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -51,6 +52,7 @@
 		1B2268EE17DB6D6F00E3F66F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1B2268FB17DB766600E3F66F /* XPAPProtocol.h */,
 				1B2268F017DB6D6F00E3F66F /* IPAddress.h */,
 				1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */,
 				1B2268F217DB6D6F00E3F66F /* UDPConnection.h */,

@@ -10,6 +10,8 @@
 #define __XPAP__B777MCP__
 
 #include "IPAddress.h"
+#include "UDPConnection.h"
+
 #include <iostream>
 
 namespace XPAP {
@@ -26,9 +28,10 @@ namespace XPAP {
         
     private:
 
-        IPAddress m_ip;
+        IPAddress       m_ip;
+        UDPConnection   m_connection;
 
-        XPLMDataRef m_altitude;
+        XPLMDataRef     m_altitude;
     };
 
 };
