@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2268F317DB6D6F00E3F66F /* IPAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */; };
+		1B2268F417DB6D6F00E3F66F /* UDPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268F117DB6D6F00E3F66F /* UDPConnection.cpp */; };
+		1B2268FA17DB6EE700E3F66F /* B777MCP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268F817DB6EE700E3F66F /* B777MCP.cpp */; };
 		D67297EB0F9E0FCC00CFD1FA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D67297EA0F9E0FCC00CFD1FA /* main.cpp */; };
 		D6A7BDAA16A1DEA200D1426A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A7BDA916A1DEA200D1426A /* OpenGL.framework */; };
 		D6A7BDC116A1DEC000D1426A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A7BDC016A1DEC000D1426A /* CoreFoundation.framework */; };
@@ -15,7 +18,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D607B19909A556E400699BC3 /* XPAP.xpl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; name = XPAP.xpl; path = Plugin.xpl; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IPAddress.cpp; sourceTree = "<group>"; };
+		1B2268F017DB6D6F00E3F66F /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+		1B2268F117DB6D6F00E3F66F /* UDPConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UDPConnection.cpp; sourceTree = "<group>"; };
+		1B2268F217DB6D6F00E3F66F /* UDPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPConnection.h; sourceTree = "<group>"; };
+		1B2268F517DB6E8300E3F66F /* xpap.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpap.pch; sourceTree = "<group>"; };
+		1B2268F817DB6EE700E3F66F /* B777MCP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B777MCP.cpp; sourceTree = "<group>"; };
+		1B2268F917DB6EE700E3F66F /* B777MCP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B777MCP.h; sourceTree = "<group>"; };
+		D607B19909A556E400699BC3 /* XPAP.xpl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = XPAP.xpl; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67297EA0F9E0FCC00CFD1FA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D6A7BDA916A1DEA200D1426A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D6A7BDC016A1DEC000D1426A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -38,10 +48,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B2268EE17DB6D6F00E3F66F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1B2268F017DB6D6F00E3F66F /* IPAddress.h */,
+				1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */,
+				1B2268F217DB6D6F00E3F66F /* UDPConnection.h */,
+				1B2268F117DB6D6F00E3F66F /* UDPConnection.cpp */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1B2268F617DB6EE700E3F66F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B2268F717DB6EE700E3F66F /* B777 */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1B2268F717DB6EE700E3F66F /* B777 */ = {
+			isa = PBXGroup;
+			children = (
+				1B2268F917DB6EE700E3F66F /* B777MCP.h */,
+				1B2268F817DB6EE700E3F66F /* B777MCP.cpp */,
+			);
+			path = B777;
+			sourceTree = "<group>";
+		};
 		AC4E46B809C2E0B3006B7E1B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1B2268F517DB6E8300E3F66F /* xpap.pch */,
 				D67297EA0F9E0FCC00CFD1FA /* main.cpp */,
+				1B2268F617DB6EE700E3F66F /* Controller */,
+				1B2268EE17DB6D6F00E3F66F /* Network */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -125,7 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B2268F317DB6D6F00E3F66F /* IPAddress.cpp in Sources */,
 				D67297EB0F9E0FCC00CFD1FA /* main.cpp in Sources */,
+				1B2268F417DB6D6F00E3F66F /* UDPConnection.cpp in Sources */,
+				1B2268FA17DB6EE700E3F66F /* B777MCP.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,12 +265,14 @@
 		D607B19C09A556E400699BC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = xpap.pch;
 			};
 			name = Debug;
 		};
 		D607B19D09A556E400699BC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = xpap.pch;
 			};
 			name = Release;
 		};

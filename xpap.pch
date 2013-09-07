@@ -1,0 +1,38 @@
+//
+//  xpap.pch
+//  XPAP
+//
+//  Created by Martin Hering on 07.09.13.
+//
+//
+
+#ifndef XPAP_xpap_pch
+#define XPAP_xpap_pch
+
+#include "XPLMPlugin.h"
+#include "XPLMDisplay.h"
+#include "XPLMGraphics.h"
+#include "XPLMProcessing.h"
+#include "XPLMDataAccess.h"
+#include "XPLMMenus.h"
+#include "XPLMUtilities.h"
+#include "XPWidgets.h"
+#include "XPStandardWidgets.h"
+#include "XPLMScenery.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#ifdef DEBUG
+#define CDebugLog(format) std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << format << std::endl;
+#define CDebugLogW(format) std::wcout << L"[" << __FILE__ << ":" << __LINE__ << "] " << format << std::endl;
+#else
+#define CDebugLog(format)
+#define CDebugLogW(format)
+#endif
+
+
+#define CErrLog(format) std::cerr << format << std::endl;
+#define CErrLogW(format) std::wcerr << format << std::endl;
+
+#endif

@@ -13,22 +13,11 @@
 
 #define XPLM210
 
-#include "XPLMPlugin.h"
-#include "XPLMDisplay.h"
-#include "XPLMGraphics.h"
-#include "XPLMProcessing.h"
-#include "XPLMDataAccess.h"
-#include "XPLMMenus.h"
-#include "XPLMUtilities.h"
-#include "XPWidgets.h"
-#include "XPStandardWidgets.h"
-#include "XPLMScenery.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "IPAddress.h"
+#include "B777MCP.h"
 
 
-static XPLMDataRef xpap_mcp_altitude = NULL;
+static XPAP::B777MCP* b777mcp = NULL;
 
 float XPAPDataLoopCallback(float elapsedMe, float elapsedSim, int counter, void * refcon);
 
@@ -43,8 +32,8 @@ PLUGIN_API int XPluginStart(
 	strcpy(outSig, "org.xpap");
 	strcpy(outDesc, "This plugin exchanges data between X-Plane and an Arduino Home Cockpit Controller.");
 
-	xpap_mcp_altitude = XPLMFindDataRef("sim/cockpit/autopilot/altitude");
-    
+	
+    b777mcp = new XPAP::B777MCP(XPAP::IPAddress("192.168.1.160"));
 
 	return 1;
 }
@@ -69,18 +58,14 @@ PLUGIN_API int XPluginEnable(void)
 	return 1;
 }
 
-PLUGIN_API void XPluginReceiveMessage(
-			 XPLMPluginID    inFromWho,
-			 long            inMessage,
-			 void *          inParam)
+PLUGIN_API void XPluginReceiveMessage(XPLMPluginID    inFromWho, long inMessage, void* inParam)
 {
 
 }
 
 float XPAPDataLoopCallback(float elapsedMe, float elapsedSim, int counter, void * refcon)
 {
-	float mcp_altitude = XPLMGetDataf(xpap_mcp_altitude);
-    
+    b777mcp->loop();
     
 	return 0.1f;
 }
