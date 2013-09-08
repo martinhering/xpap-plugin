@@ -12,39 +12,35 @@
 
 using namespace XPAP;
 
-B777MCP::B777MCP(IPAddress ip) : m_ip(ip) {
-    m_altitude_ref = XPLMFindDataRef("sim/cockpit/autopilot/altitude");
-    
-    m_connection = UDPConnection();
-    m_connection.bind(24555);
-    m_connection.setRemoteAddress(m_ip, 24555);
+B777MCP::B777MCP(IPAddress ip) : IController(ip)
+{
+    m_endpoints.push_back(Endpoint("sim/cockpit/autopilot/autopilot_mode", XPAPEndpointAutopilotMode, XPAPPayloadTypeInteger));
+    m_endpoints.push_back(Endpoint("sim/cockpit/autopilot/altitude", XPAPEndpointAutopilotDialedAltitude, XPAPPayloadTypeFraction));
 }
 
 B777MCP::~B777MCP() {
     
 }
 
-void B777MCP::loop() {
+void B777MCP::initialize()
+{
+    CDebugLog("initialize");
     
-    float altitude = XPLMGetDataf(m_altitude_ref);
-    
-    if ((uint32_t)altitude != m_altitude)
-    {
-        m_altitude = (uint32_t)altitude ;
-        
-        uint32_t payload = htonl((uint32_t)m_altitude);
-        
-        XPAPUDPHeader_t header;
-        header.endpoint = htonl(1);
-        header.payload_type = htons(1);
-        header.payload_size = htons(sizeof(payload));
-        
-        uint8_t packet[XPAP_MAX_PACKET_SIZE];
-        memcpy(packet, &header, sizeof(XPAPUDPHeader_t));
-        memcpy(packet+sizeof(header), &payload, header.payload_size);
-        
-        m_connection.sendData(&packet, sizeof(XPAPUDPHeader_t)+sizeof(payload));
-    }
-    
-    
+    EndpointListIterator iter;
+    for(iter = m_endpoints.begin(); iter != m_endpoints.end(); iter++)
+	{
+		Endpoint endpoint = *iter;
+        endpoint.sendValue(m_connection, true);
+	}
+}
+
+
+void B777MCP::loop()
+{
+    EndpointListIterator iter;
+    for(iter = m_endpoints.begin(); iter != m_endpoints.end(); iter++)
+	{
+		Endpoint endpoint = *iter;
+        endpoint.sendValue(m_connection);
+	}
 }

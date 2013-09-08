@@ -10,6 +10,8 @@
 		1B2268F317DB6D6F00E3F66F /* IPAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */; };
 		1B2268F417DB6D6F00E3F66F /* UDPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268F117DB6D6F00E3F66F /* UDPConnection.cpp */; };
 		1B2268FA17DB6EE700E3F66F /* B777MCP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268F817DB6EE700E3F66F /* B777MCP.cpp */; };
+		1B2268FF17DC738D00E3F66F /* IController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2268FD17DC738D00E3F66F /* IController.cpp */; };
+		1B22690217DC816200E3F66F /* Endpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B22690017DC816200E3F66F /* Endpoint.cpp */; };
 		D67297EB0F9E0FCC00CFD1FA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D67297EA0F9E0FCC00CFD1FA /* main.cpp */; };
 		D6A7BDAA16A1DEA200D1426A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A7BDA916A1DEA200D1426A /* OpenGL.framework */; };
 		D6A7BDC116A1DEC000D1426A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A7BDC016A1DEC000D1426A /* CoreFoundation.framework */; };
@@ -25,7 +27,11 @@
 		1B2268F517DB6E8300E3F66F /* xpap.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpap.pch; sourceTree = "<group>"; };
 		1B2268F817DB6EE700E3F66F /* B777MCP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B777MCP.cpp; sourceTree = "<group>"; };
 		1B2268F917DB6EE700E3F66F /* B777MCP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B777MCP.h; sourceTree = "<group>"; };
-		1B2268FB17DB766600E3F66F /* XPAPProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPAPProtocol.h; sourceTree = "<group>"; };
+		1B2268FC17DC6FD700E3F66F /* XPAPProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XPAPProtocol.h; path = Arduino/XPAPProtocol.h; sourceTree = SOURCE_ROOT; };
+		1B2268FD17DC738D00E3F66F /* IController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IController.cpp; sourceTree = "<group>"; };
+		1B2268FE17DC738D00E3F66F /* IController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IController.h; sourceTree = "<group>"; };
+		1B22690017DC816200E3F66F /* Endpoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Endpoint.cpp; sourceTree = "<group>"; };
+		1B22690117DC816200E3F66F /* Endpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
 		D607B19909A556E400699BC3 /* XPAP.xpl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = XPAP.xpl; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67297EA0F9E0FCC00CFD1FA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D6A7BDA916A1DEA200D1426A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -52,7 +58,7 @@
 		1B2268EE17DB6D6F00E3F66F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1B2268FB17DB766600E3F66F /* XPAPProtocol.h */,
+				1B2268FC17DC6FD700E3F66F /* XPAPProtocol.h */,
 				1B2268F017DB6D6F00E3F66F /* IPAddress.h */,
 				1B2268EF17DB6D6F00E3F66F /* IPAddress.cpp */,
 				1B2268F217DB6D6F00E3F66F /* UDPConnection.h */,
@@ -64,6 +70,10 @@
 		1B2268F617DB6EE700E3F66F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1B2268FE17DC738D00E3F66F /* IController.h */,
+				1B2268FD17DC738D00E3F66F /* IController.cpp */,
+				1B22690117DC816200E3F66F /* Endpoint.h */,
+				1B22690017DC816200E3F66F /* Endpoint.cpp */,
 				1B2268F717DB6EE700E3F66F /* B777 */,
 			);
 			path = Controller;
@@ -172,6 +182,8 @@
 				D67297EB0F9E0FCC00CFD1FA /* main.cpp in Sources */,
 				1B2268F417DB6D6F00E3F66F /* UDPConnection.cpp in Sources */,
 				1B2268FA17DB6EE700E3F66F /* B777MCP.cpp in Sources */,
+				1B22690217DC816200E3F66F /* Endpoint.cpp in Sources */,
+				1B2268FF17DC738D00E3F66F /* IController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +203,7 @@
 					"IBM=0",
 					"LIN=0",
 					"XPLM200=1",
+					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";
@@ -234,6 +247,7 @@
 					"IBM=0",
 					"LIN=0",
 					"XPLM200=1",
+					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";

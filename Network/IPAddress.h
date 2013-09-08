@@ -6,11 +6,12 @@
  *
  */
 
-#include <string>
-#include <arpa/inet.h>
+
 
 #ifndef IPAddress_
 #define IPAddress_
+
+#include <arpa/inet.h>
 
 #pragma GCC visibility push(default)
 

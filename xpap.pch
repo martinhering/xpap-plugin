@@ -22,17 +22,26 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+#include <string>
+#include <map>
+#include <utility>
+#include <vector>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+
+#define FILE (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 #ifdef DEBUG
-#define CDebugLog(format) std::cout << "[" << __FILE__ << ":" << __LINE__ << "] " << format << std::endl;
-#define CDebugLogW(format) std::wcout << L"[" << __FILE__ << ":" << __LINE__ << "] " << format << std::endl;
+#define CDebugLog(format) std::ostringstream stream; stream << "[" << FILE << ":" << __LINE__ << "] " << format << std::endl; ::XPLMDebugString(stream.str().c_str());
 #else
 #define CDebugLog(format)
-#define CDebugLogW(format)
 #endif
 
 
 #define CErrLog(format) std::cerr << format << std::endl;
-#define CErrLogW(format) std::wcerr << format << std::endl;
 
 #endif

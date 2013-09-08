@@ -68,7 +68,7 @@ IPAddress::IPAddress(const std::string& host_str, int type)
 			
 			if (!host_info || !host_info->h_addr || host_info->h_addrtype != AF_INET || host_info->h_length != sizeof(m_adr4.s_addr)) {
 				m_is_valid = false;
-				CDebugLogW(L"Can not resolve " << host_str);
+				CDebugLog("Can not resolve " << host_str);
 				return;
 			}
 			
@@ -82,7 +82,7 @@ IPAddress::IPAddress(const std::string& host_str, int type)
 		}
 		else if (inet_pton(AF_INET6, address, &m_adr6) == 0)
 		{
-			CErrLogW(L"Resolving IPv6 domains not supported");
+			CErrLog("Resolving IPv6 domains not supported");
 		}
 	}
 	

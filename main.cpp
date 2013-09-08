@@ -11,7 +11,6 @@
 // Content added by BlueSideUpBob.
 //
 
-#define XPLM210
 
 #include "IPAddress.h"
 #include "B777MCP.h"
@@ -46,15 +45,13 @@ PLUGIN_API void XPluginStop(void)
 
 PLUGIN_API void XPluginDisable(void)
 {
-    XPLMDebugString("xpap: disable\n");
     XPLMUnregisterFlightLoopCallback(XPAPDataLoopCallback, 0);
 }
 
 PLUGIN_API int XPluginEnable(void)
 {
-    XPLMDebugString("xpap: enable\n");
-    
     XPLMRegisterFlightLoopCallback(XPAPDataLoopCallback, 1.0, NULL);
+    b777mcp->initialize();
 	return 1;
 }
 

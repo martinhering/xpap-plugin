@@ -9,31 +9,25 @@
 #ifndef __XPAP__B777MCP__
 #define __XPAP__B777MCP__
 
-#include "IPAddress.h"
-#include "UDPConnection.h"
-
-#include <iostream>
+#include "IController.h"
+#include "Endpoint.h"
 
 namespace XPAP {
     
-    class B777MCP {
+    class B777MCP : public IController
+    {
         
     public:
         
         explicit B777MCP(IPAddress ip);
         virtual ~B777MCP();
         
-        
-        void loop();
+        virtual void initialize();
+        virtual void loop();
         
     private:
-
-        IPAddress       m_ip;
-        UDPConnection   m_connection;
-
-        XPLMDataRef     m_altitude_ref;
         
-        uint32_t        m_altitude;
+        EndpointList    m_endpoints;
     };
 
 };
