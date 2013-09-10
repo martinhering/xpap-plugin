@@ -14,6 +14,7 @@ using namespace XPAP;
 IController::IController(IPAddress ip) : m_ip(ip) {
     
     m_connection = UDPConnection();
+    m_connection.rBlocking() = false;
     m_connection.bind(24555);
     m_connection.setRemoteAddress(m_ip, 24555);
 }

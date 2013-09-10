@@ -37,6 +37,14 @@ void B777MCP::initialize()
 
 void B777MCP::loop()
 {
+    // receive packets
+    
+    
+    
+    
+    
+    // send packets
+    
     EndpointListIterator iter;
     for(iter = m_endpoints.begin(); iter != m_endpoints.end(); iter++)
 	{
